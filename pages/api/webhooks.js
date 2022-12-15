@@ -34,9 +34,9 @@ const handler = async (req, res) => {
             break;
     }
 
-    console.log({ event })
+    console.log(event)
 
-    res.send({ details, received: true })
+    res.send({ received: true })
 }
 
 export default handler;
