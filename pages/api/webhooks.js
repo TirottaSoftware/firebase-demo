@@ -21,11 +21,9 @@ const handler = async (req, res) => {
         return res.status(400).send('Webhook error: ' + error.message);
     }
 
-    let details
     switch (event.type) {
         case "customer.subscription.created":
             console.log("Subscription Created.")
-            details = event.data
             await supabase
                 .from('customer')
                 .update({
@@ -36,7 +34,7 @@ const handler = async (req, res) => {
             break;
     }
 
-    console.log(details)
+    console.log({ event })
 
     res.send({ details, received: true })
 }
