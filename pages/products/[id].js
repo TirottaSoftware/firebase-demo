@@ -21,7 +21,7 @@ function Product({ product, loading }) {
 
         if (result.error) alert(result.error.message)
 
-        axios.get('/api/createUser').then(res => console.log(res))
+        axios.get('/api/create-user').then(res => console.log(res))
     }
 
 

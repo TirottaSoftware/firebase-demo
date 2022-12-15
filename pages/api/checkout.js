@@ -7,8 +7,8 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: 'http://localhost:3000/',
-        cancel_url: 'http://localhost:3000/',
+        success_url: 'https://firebase-demo-rho.vercel.app/',
+        cancel_url: 'https://firebase-demo-rho.vercel.app/',
         line_items: [
             {
                 'price': process.env.PRODUCT_ONE_ID,

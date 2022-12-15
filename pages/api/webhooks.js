@@ -22,15 +22,14 @@ const handler = async (req, res) => {
     }
 
     switch (event.type) {
-        case "customer.subscription.created":
+        case "checkout.session.completed":
             console.log("Subscription Created.")
-            await supabase
-                .from('customer')
-                .update({
-                    is_subscribed: true,
-                    interval: event.data.object.items.data[0].plan.interval
-                })
-                .eq('stripe_id', event.data.object.customer);
+
+            const userEmail = event.data.object.customer_details.email;
+            const customerId = event.data.object.customer_details.customer;
+
+            console.log({ user: { email: userEmail, customerId } })
+
             break;
     }
 
