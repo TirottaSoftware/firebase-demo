@@ -38,7 +38,7 @@ const handler = async (req, res) => {
 
     console.log(details)
 
-    res.send({ received: true })
+    res.send({ details, received: true })
 }
 
 export default handler;
